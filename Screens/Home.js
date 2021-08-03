@@ -1,29 +1,54 @@
 import * as React from 'react'
-import { Dimensions } from 'react-native'
+import {
+    Dimensions,
+    StyleSheet 
+} from 'react-native'
 import {
     View,
     SafeAreaView,
-    TouchableOpacityComponent,
+    TouchableOpacity,
     Text,
     Image
 } from 'react-native'
 
 import {
     ScrollView,
-    Directions
+    Directions,
+    FlatList
 } from 'react-native-gesture-handler'
+import {NavigationContainer} from '@react-navigation/native'
 
+const deviceWidth = Dimensions.get('window').width
+const deviceHeight = Dimensions.get('window').height
 
-const HomeScreen = (navigation) => {
+const HomeScreen = ({navigation}) => {
     return (
-        <View style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
-            <Text>This is home page</Text>
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <TouchableOpacity onPress = {() => {
+                    navigation.navigate ('Detail')
+                }}>
+                    <Text style = {{
+                        color: '#FF3010'
+                    }}>Home Page</Text>
+                </TouchableOpacity>
+            </View>
+        </ScrollView>
     )
 }
 
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor : '#8262FF',
+        width: deviceWidth - 20,
+        height: deviceHeight *2,
+        margin: 10,
+        padding: 10
+    },
+    container2: {
+
+    }
+})
 export default HomeScreen

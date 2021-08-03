@@ -10,7 +10,7 @@ import HomeScreen from './Screens/Home';
 import PlantScreen from './Screens/Plant';
 import MoreScreen from './Screens/More';
 import ResultScreen from './Screens/Result';
-
+import DetailScreen from './Screens/Detail';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -27,6 +27,11 @@ function HomeStack() {
         name="Home"
         component={HomeScreen}
         options={{ title: 'Home Page' }}
+      />
+      <Stack.Screen
+        name="Detail"
+        component={DetailScreen}
+        options={{ title: 'Detail Page' }}
       />
     </Stack.Navigator>
   );
@@ -102,7 +107,7 @@ function App() {
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="home" color={color} size={size} />
+              <MaterialCommunityIcons name="home-account" color={color} size={size} />
             ),
           }}
         />
