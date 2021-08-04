@@ -20,7 +20,7 @@ const App = () => {
   return (
     <>
      <StatusBar barStyle='light-content'></StatusBar>
-    <NavigationContainer>
+      <NavigationContainer>
      
       <Stack.Navigator initialRouteName='Questions' screenOptions={{headerMode:"screen", headerTintColor: Color.White1, headerStyle:{shadowColor: 'transparent', backgroundColor: Color.Dark1 }}} >
         <Stack.Screen name='Questions' component={Question} />

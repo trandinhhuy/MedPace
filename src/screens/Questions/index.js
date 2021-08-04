@@ -1,12 +1,20 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Color } from '../../color';
-import Button from '../../components/Button';
+import WhatIsYourBirthday from './WhatIsYourBirthday';
+import WhatIsYourgender from './WhatIsYourGender';
+import WhatIsYourHeight from './WhatIsYourHeight';
 
-const Question = ({ navigation }) => {
-    return <View style={{flex:1, backgroundColor: Color.Dark1}}>
-        <Button onPress={() => navigation.navigate('Home') } >Test</Button>
-    </View>
+const Question = ({ navigation, route = { params: {} } }) => {
+    const [questionId, setQuestionId] = React.useState(1);
+    switch (questionId) {
+        default:
+        case 1:
+            return <WhatIsYourgender navigation={navigation} route={route} onAction={() => setQuestionId(2)} />
+        case 2:
+            return <WhatIsYourBirthday navigation={navigation} route={route} onAction={() => setQuestionId(3)} />
+        case 3:
+            return <WhatIsYourHeight navigation={navigation} route={route} onAction={() => setQuestionId(4)} />
+    }
+
 }
 
 
