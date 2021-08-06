@@ -12,7 +12,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Question from './src/screens/Questions';
 import { StatusBar } from 'react-native';
 import { Color } from './src/color';
-import Home from './src/screens/Home';
+import BottomTabNavigation from './src/navigations/BottomTabNavigation';
+
 
 const Stack = createStackNavigator();
 
@@ -24,7 +25,7 @@ const App = () => {
      
       <Stack.Navigator initialRouteName='Questions' screenOptions={{headerMode:"screen", headerTintColor: Color.White1, headerStyle:{shadowColor: 'transparent', backgroundColor: Color.Dark1 }}} >
         <Stack.Screen name='Questions' component={Question} />
-        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen options={{headerShown:false}} name='BottomTabNavigation' component={BottomTabNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
     </>

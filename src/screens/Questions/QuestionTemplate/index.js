@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { Color } from '../../../color';
 import Button from '../../../components/Button';
 
-const QuestionTemplate = ({ navigation, route, questionTitle, children, disabled, questionNumber, totalQuestion, onAction = () => {}, ...props }) => {
+const QuestionTemplate = ({ navigation, route, questionTitle, children, disabled, questionNumber, totalQuestion, actionTitle='Next', onAction = () => {}, ...props }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerTitle:''
@@ -18,7 +18,7 @@ const QuestionTemplate = ({ navigation, route, questionTitle, children, disabled
             {children}
         </View>
         <View style={{flex:2, justifyContent:"center", alignItems:"stretch"}}>
-            <Button disabled={disabled} onPress={() => { !disabled && onAction()}} variant={!disabled ? 'primary' : 'basic'}>Next</Button>
+            <Button disabled={disabled} onPress={() => { !disabled && onAction()}} variant={!disabled ? 'primary' : 'basic'}>{actionTitle}</Button>
         </View>
     </View>
 }
