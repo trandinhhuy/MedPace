@@ -11,6 +11,8 @@ import PlantScreen from './Screens/Plant';
 import MoreScreen from './Screens/More';
 import ResultScreen from './Screens/Result';
 import DetailScreen from './Screens/Detail';
+import StartMetricScreen from './Screens/StartMetric';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -32,6 +34,11 @@ function HomeStack() {
         name="Detail"
         component={DetailScreen}
         options={{ title: 'Detail Page' }}
+      />
+      <Stack.Screen
+        name="StartMetric"
+        component={StartMetricScreen}
+        options={{ title: 'Start with Metric' }}
       />
     </Stack.Navigator>
   );
@@ -150,4 +157,4 @@ function App() {
   );
 }
 
-export default App;
+export default StartMetricScreen;

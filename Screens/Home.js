@@ -17,7 +17,6 @@ import {
     FlatList
 } from 'react-native-gesture-handler'
 import {NavigationContainer} from '@react-navigation/native'
-
 const deviceWidth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 
@@ -26,7 +25,7 @@ const HomeScreen = ({navigation}) => {
         <ScrollView>
             <View style={styles.container}>
                 <TouchableOpacity onPress = {() => {
-                    navigation.navigate ('Detail')
+                    navigation.navigate ('StartMetric')
                 }}>
                     <Text style = {{
                         color: '#FF3010'
