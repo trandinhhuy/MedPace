@@ -143,7 +143,7 @@ const Home = ({navigation}) => {
                         marginTop: 8,
                         fontSize: 38
                     }}>
-                        1523
+                        1.523
                     </Text>
                     <Text style = {{
                         alignSelf: 'center',
@@ -169,7 +169,7 @@ const Home = ({navigation}) => {
                         marginTop: 8,
                         fontSize: 38
                     }}>
-                        15.6
+                        15,6
                     </Text>
                     <Text style = {{
                         alignSelf: 'center',
@@ -193,7 +193,7 @@ const Home = ({navigation}) => {
                         marginTop: 8,
                         fontSize: 38
                     }}>
-                        0.5
+                        0,5
                     </Text>
                     <Text style = {{
                         alignSelf: 'center',

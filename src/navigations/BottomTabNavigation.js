@@ -21,7 +21,7 @@ function BottomTabNavigation() {
         },
      }}>
       <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.home_icon} {...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Home" component={Home} />
-      <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.target_icon}{...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Target" component={PlantScreen}/>
+      <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.target_icon}{...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Plan" component={PlantScreen}/>
       <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.result_icon}{...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Result" component={ResultScreen}/>
       <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.setting_icon} {...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Setting" component={Setting} />
     </Tab.Navigator>
