@@ -14,6 +14,10 @@ import { StatusBar } from 'react-native';
 import { Color } from './src/color';
 import BottomTabNavigation from './src/navigations/BottomTabNavigation';
 import Profile from './src/screens/Profile';
+import MeasuringUnit from './src/screens/MeasuringUnit';
+import Language from './src/screens/Language';
+import Notification from './src/screens/Notification';
+
 
 
 const Stack = createStackNavigator();
@@ -28,6 +32,9 @@ const App = () => {
         <Stack.Screen name='Questions' component={Question} />
         <Stack.Screen options={{headerShown:false}} name='BottomTabNavigation' component={BottomTabNavigation} />
         <Stack.Screen options={{headerShown: false}} name='Profile' component = {Profile}/>
+        <Stack.Screen options={{headerShown: false}} name='MeasuringUnit' component = {MeasuringUnit}/>
+        <Stack.Screen options={{headerShown: false}} name='Language' component = {Language}/>
+        <Stack.Screen options={{headerShown: false}} name='Notification' component = {Notification}/>
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -189,9 +189,9 @@ class Profile extends Component {
                         {this.state.goals.map((data, key) => {
                             return (
                                 <View style={{ flexDirection: 'column' }}>
-                                    <View key={key} style={{ marginVertical: 20 }}>
-                                        <View style={{ flexDirection: 'row', marginRight: 20, }}>
-                                            <TouchableOpacity style={{ marginRight: 20 }} onPress={() => { this.onchecked(key) }}>
+                                    <View key={key} style={{ marginVertical: 18 }}>
+                                        <View style={{ flexDirection: 'row'}}>
+                                            <TouchableOpacity style={{ marginRight: 18 }} onPress={() => { this.onchecked(key) }}>
                                                 {data.checked ?
                                                     (<Image source={assets.check_square} />) : (<Image source={assets.uncheck_square} />)}
                                             </TouchableOpacity>
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#141414',
         width: deviceWidth,
         flexDirection: 'column',
-        paddingHorizontal: 20
+        paddingHorizontal: 16
     },
     title: {
         color: Color.White2,
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
 
     },
     container2: {
-        marginVertical: 20,
+        marginVertical: 18,
         flexDirection: 'row',
     },
     container3: {
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 20,
         fontWeight: '600',
-        marginHorizontal: 20
+        marginHorizontal: 16
 
     },
     unit: {
@@ -266,7 +266,7 @@ const styles = StyleSheet.create({
     divide: {
         height: 1,
         backgroundColor: '#242424',
-        width: deviceWidth - 40
+        width: deviceWidth - 32
     }
 
 })

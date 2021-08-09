@@ -20,14 +20,18 @@ import { Color } from '../../color'
 
 const deviceWidth = Dimensions.get('window').width
 const More = ({ navigation }) => {
+    var theme = ['Light', 'Dark']
+
+    const [checkedTheme, setchecked] = useState(1)
     const [isOverwork, setOverwork] = useState(false);
     const toggleOverwork = () => setOverwork(previousState => !previousState);
     const [isBatterySave, setBatterySave] = useState(false);
     const toggleBatterySave = () => setBatterySave(previousState => !previousState);
     return (
+
         <View style={{ flexDirection: 'column' }}>
-            <View style={{backgroundColor:Color.Dark1, height: 50, width: deviceWidth, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{color: Color.White1, fontSize:20, lineHeight:24, fontWeight:'600'}}>
+            <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth, justifyContent: 'center', alignItems: 'center' }}>
+                <Text style={{ color: Color.White1, fontSize: 20, lineHeight: 24, fontWeight: '600' }}>
                     More
                 </Text>
             </View>
@@ -36,7 +40,7 @@ const More = ({ navigation }) => {
                 <View style={styles.container}>
                     <Text style={styles.title}>Settings</Text>
                     <TouchableOpacity onPress={() => {
-                        navigation.navigate('Profile', { name: 'Custom profile header' })
+                        navigation.navigate('Profile')
                     }}>
                         <View style={styles.container2}>
                             <Text style={styles.name}>Profile</Text>
@@ -44,7 +48,9 @@ const More = ({ navigation }) => {
                                 source={assets.arrow} />
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('MeasuringUnit')
+                    }}>
                         <View style={styles.container2}>
                             <Text style={styles.name}>Measuring Unit</Text>
                             <Image style={styles.arrow}
@@ -66,7 +72,9 @@ const More = ({ navigation }) => {
                                 source={isBatterySave ? assets.switch_on : assets.switch_off} />
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('Notification')
+                    }}>
                         <View style={styles.container2}>
                             <Text style={styles.name}>Notification</Text>
                             <View style={{ flexDirection: 'row' }}>
@@ -77,7 +85,9 @@ const More = ({ navigation }) => {
 
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('Language')
+                    }}>
                         <View style={styles.container2}>
                             <Text style={styles.name}>Language</Text>
                             <View style={{ flexDirection: 'row' }}>
@@ -87,6 +97,37 @@ const More = ({ navigation }) => {
                             </View>
                         </View>
                     </TouchableOpacity>
+                    <View style={styles.container2}>
+                        <Text style={styles.name}>Theme</Text>
+                        <View style={{ alignSelf: 'center', flexDirection: 'row'}}>
+                            {
+                                theme.map((data, key) => {
+                                    return (
+                                        <View key={key}>
+                                            {checkedTheme == key ?
+                                                <View style={{ flexDirection: 'row', marginLeft:20}}>
+                                                    <TouchableOpacity style={{ marginRight: 10 }}>
+                                                        <Image source={assets.check_circle} />
+                                                    </TouchableOpacity>
+                                                    <Text style={styles.detail}>{data}</Text>
+
+                                                </View>
+                                                :
+                                                <View style={{ flexDirection: 'row', marginLeft: 20}}>
+                                                    <TouchableOpacity onPress={() => { setchecked(key) }} style={{ marginRight: 10 }}>
+                                                        <Image source={assets.uncheck_circle} />
+                                                    </TouchableOpacity>
+                                                    <Text style={styles.detail}>{data}</Text>
+
+                                                </View>
+                                            }
+                                        </View>
+                                    )
+                                })}
+                        </View>
+
+
+                    </View>
 
                     <Text style={styles.title}>Data and Sync</Text>
                     <TouchableOpacity>
@@ -164,41 +205,39 @@ const styles = StyleSheet.create({
         fontSize: 20,
         lineHeight: 24,
         fontWeight: '600',
-        marginLeft: 20,
+        marginLeft: 16,
         marginTop: 50,
-        marginBottom: 20
+        marginBottom: 20,
 
     },
     container2: {
         width: deviceWidth,
-        height: 56,
         backgroundColor: '#242424',
         flexDirection: 'row',
         display: 'flex',
-        marginBottom: 2
+        marginBottom: 2,
+        paddingVertical:18,
+        paddingHorizontal: 16
     },
     name: {
         color: '#D8D8DF',
         fontSize: 16,
         lineHeight: 20,
         fontWeight: '400',
-        marginLeft: 20,
-        alignSelf: 'center',
         flex: 1
     },
-    arrow: {
-        alignSelf: 'center',
-        marginRight: 20
+    arrow:{
+        alignSelf:'center',
+        marginLeft:20
     },
+    
     topIcon: {
-        marginLeft: 20,
-        alignSelf: 'center'
+        marginRight: 20,
     },
     detail: {
         fontSize: 16,
         fontWeight: '400',
         color: '#A1A1A1',
-        marginRight: 20,
         alignSelf: 'center'
     }
 })
