@@ -10,6 +10,11 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Question from './src/screens/Questions';
+import Profile from './src/screens/Profile';
+import Language from './src/screens/Language';
+import Notification from './src/screens/Notification';
+import MeasuringUnit from './src/screens/MeasuringUnit';
+
 import { StatusBar } from 'react-native';
 import { Color } from './src/color';
 import BottomTabNavigation from './src/navigations/BottomTabNavigation';
@@ -27,6 +32,10 @@ const App = () => {
         <Stack.Screen name='Questions' component={Question} />
         <Stack.Screen options={{headerShown:false}} name='BottomTabNavigation' component={BottomTabNavigation} />
         <Stack.Screen options={{headerShown: false}} name='Start' component = {StartScreen}/>
+        <Stack.Screen options={{headerShown: false}} name='Profile' component = {Profile}/>
+        <Stack.Screen options={{headerShown: false}} name='MeasuringUnit' component = {MeasuringUnit}/>
+        <Stack.Screen options={{headerShown: false}} name='Language' component = {Language}/>
+        <Stack.Screen options={{headerShown: false}} name='Notification' component = {Notification}/>
       </Stack.Navigator>
     </NavigationContainer>
     </>
