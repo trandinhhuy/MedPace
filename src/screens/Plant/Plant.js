@@ -3,75 +3,83 @@ import {
     View,
     Text,
     TouchableOpacity,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
 import { StyleSheet } from 'react-native';
 import { useEffect } from 'react';
 import {Color} from '../../color';
 import _BackgroundTimer from 'react-native-background-timer';
+import { useState } from 'react';
+import { Dimensions } from 'react-native';
+const deviceWidth = Dimensions.get('window').width
 const PlantScreen = () => {
-    const [secondLeft, setSecondLeft] = React.useState(10);
-    const [timerOn, setTimerOn] = React.useState(false)
-    const [appearItem, setAppearItem] = React.useState(false);
-    useEffect(() => {
-        if (timerOn) startTimer()
-        else _BackgroundTimer.stopBackgroundTimer()
-        
-        return () => {
-            _BackgroundTimer.stopBackgroundTimer()
-        }
-    }, [timerOn])
+    const flatListRef = React.useRef()
+    const resetItem = [
+        {name: 'day'}, 
+        {name: 'week'},
+        {name: 'month'}
+    ]
+    const [item, setItem] = React.useState([
+        {name: 'day'}, 
+        {name: 'week'},
+        {name: 'month'}
+    ])
 
-    useEffect(() => {
-        if (secondLeft == 0) {
-            _BackgroundTimer.stopBackgroundTimer()
-            setAppearItem(true)
-        } 
-        else setAppearItem(false)
-    }, [secondLeft])
-    const startTimer = () => {
-        _BackgroundTimer.runBackgroundTimer(() => {
-            setSecondLeft(secs => {
-                if (secs > 0) return secs-1
-                else return 0
-            })
-        }, 1000)
+    function toTop(){
+        flatListRef.current.scrollToOffset({ animated: true, offset: 0 })
     }
-
-    function Appear() {
-        if (appearItem){
-            return(
-                <Text style={styles.textWhite}>time ups</Text>
-            )
-        }
-        else return null
+    function renderItem ({item}){
+        return (
+            <View style = {{
+                alignItems: 'center',
+                justifyContent: 'center'
+            }}>
+            <Text style = {{
+                paddingHorizontal: 20,
+                alignSelf: 'center',
+                width: 280,
+                justifyContent:'center',
+                alignItems: 'center',
+                textAlign: 'center'
+            }}>{item.name}</Text>
+            </View>
+        )
     }
     return (
         <View style = {{
-            flex: 1, 
-            justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: Color.Dark1
+            justifyContent: 'center',
+            width: 300,
         }}>
-            <Text style = {styles.textWhite}>{secondLeft}s</Text>
+            <FlatList
+            horizontal
+            pagingEnabled = {true}
+            ref = {flatListRef}
+            showsHorizontalScrollIndicator = {false}
+            data = {item}
+            keyExtractor = {(item) => item.name}
+            renderItem = {renderItem}
+            contentContainerStyle = {{
+                flexDirection: 'row',
+            }}
+            style = {{
+                width: 280,
+                height: 50,
+                alignSelf: 'center',
+                marginHorizontal: 20,
+                borderWidth: 1,
+                borderRadius: 40,
+            }}
+            />
             <TouchableOpacity onPress = {() => {
-                setTimerOn(!timerOn)
+                toTop()
             }}>
-                <Text style = {styles.textWhite}>Start counting </Text>
+                <Text>reset</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress = {() => {
-                setSecondLeft(secondLeft + 10)
-            }}> 
-                <Text style = {styles.textWhite}>Tab here to add more 10 sec</Text>
-            </TouchableOpacity>
-            {Appear()}
         </View>
+        
     )
 }
 
-let styles = StyleSheet.create({
-    textWhite: {
-        color: 'white'
-    }
-})
 export default PlantScreen;

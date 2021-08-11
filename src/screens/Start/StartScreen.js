@@ -84,7 +84,7 @@ const StartScreen = ({navigation}) => {
             if (unlock){
                 return (
                     <View style={styles.footerPlayPause}>
-                        <TouchableOpacity onPress={() => {}}>
+                        <TouchableOpacity onPress={() => {navigation.goBack()}}>
                             <Image height = {40} width = {40} source = {assets.stop_icon} style = {styles.subButton}/>
                         </TouchableOpacity>
 
