@@ -19,6 +19,7 @@ import { StatusBar } from 'react-native';
 import { Color } from './src/color';
 import BottomTabNavigation from './src/navigations/BottomTabNavigation';
 import StartScreen from './src/screens/Start/StartScreen';
+import NewGoalScreen from './src/screens/Goal/NewGoalScreen';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,7 @@ const App = () => {
         <Stack.Screen name='Questions' component={Question} />
         <Stack.Screen options={{headerShown:false}} name='BottomTabNavigation' component={BottomTabNavigation} />
         <Stack.Screen options={{headerShown: false}} name='Start' component = {StartScreen}/>
+        <Stack.Screen options={{headerShown: false}} name='NewGoal' component = {NewGoalScreen}/>
         <Stack.Screen options={{headerShown: false}} name='Profile' component = {Profile}/>
         <Stack.Screen options={{headerShown: false}} name='MeasuringUnit' component = {MeasuringUnit}/>
         <Stack.Screen options={{headerShown: false}} name='Language' component = {Language}/>

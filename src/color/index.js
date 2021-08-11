@@ -3,8 +3,8 @@ const Color = {
     White2: '#A1A1A1',
     Dark1: '#141414',
     Dark2: '#242424',
-    Main1: '#19DC21',
-    Main2: '#29560D'
+    Main1: '#05DB0E',
+    Main2: '#155018'
 }
 
 export { 

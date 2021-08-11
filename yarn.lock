@@ -1462,6 +1462,16 @@
   "resolved" "https://registry.npmjs.org/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz"
   "version" "1.1.0"
 
+"@react-native-community/slider@^3.0.3":
+  "integrity" "sha512-8IeHfDwJ9/CTUwFs6x90VlobV3BfuPgNLjTgC6dRZovfCWigaZwVNIFFJnHBakK3pW2xErAPwhdvNR4JeNoYbw=="
+  "resolved" "https://registry.npmjs.org/@react-native-community/slider/-/slider-3.0.3.tgz"
+  "version" "3.0.3"
+
+"@react-native-picker/picker@^1.16.5":
+  "integrity" "sha512-IYfMXdUsfQe4RBLJPZq6GoPkr2otOTZqej/gU93x+oIjrR+UCcCb0fsqmXHT8qX29E+0cEQZd/4bWnzbICHNrg=="
+  "resolved" "https://registry.npmjs.org/@react-native-picker/picker/-/picker-1.16.5.tgz"
+  "version" "1.16.5"
+
 "@react-native/assets@1.0.0":
   "integrity" "sha512-KrwSpS1tKI70wuKl68DwJZYEvXktDHdZMG0k2AXD/rJVSlB23/X2CB2cutVR0HwNMJIal9HOUOBB2rVfa6UGtQ=="
   "resolved" "https://registry.npmjs.org/@react-native/assets/-/assets-1.0.0.tgz"
@@ -6014,12 +6024,19 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
+<<<<<<< HEAD
 "react-native-dropdown-picker@^5.1.23":
   "integrity" "sha512-Mz8CJAP/3iSXqR7Ox0IchfSotP1g2tcxn3jIS23IEw73zAdntLsp3J15iQQrIANxEuxel2RcPIF2sZvcyKQK9g=="
   "resolved" "https://registry.npmjs.org/react-native-dropdown-picker/-/react-native-dropdown-picker-5.1.23.tgz"
   "version" "5.1.23"
   dependencies:
     "react-native-gesture-handler" "*"
+=======
+"react-native-community-slider-ry@^1.1.5":
+  "integrity" "sha512-4ZnKIYO4ALEZvuDyjEKvpg00bgkXo1N7TaoCHYiMAX5t14SlQvkHMVd76XuMxkRkIc2ISTbTokk48jT7IyYsjg=="
+  "resolved" "https://registry.npmjs.org/react-native-community-slider-ry/-/react-native-community-slider-ry-1.1.5.tgz"
+  "version" "1.1.5"
+>>>>>>> fa56c09dd35483397b4ce77d78d94999578252ba
 
 "react-native-gesture-handler@*", "react-native-gesture-handler@^1.10.3", "react-native-gesture-handler@>= 1.0.0":
   "integrity" "sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw=="
@@ -6074,7 +6091,7 @@
     "css-select" "^2.1.0"
     "css-tree" "^1.0.0-alpha.39"
 
-"react-native@*", "react-native@>=0.47.0", "react-native@>=0.50.0", "react-native@>=0.64.0-rc.0 || 0.0.0-*", "react-native@0.64.2":
+"react-native@*", "react-native@>=0.47.0", "react-native@>=0.50.0", "react-native@>=0.57", "react-native@>=0.64.0-rc.0 || 0.0.0-*", "react-native@0.64.2":
   "integrity" "sha512-Ty/fFHld9DcYsFZujXYdeVjEhvSeQcwuTGXezyoOkxfiGEGrpL/uwUZvMzwShnU4zbbTKDu2PAm/uwuOittRGA=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.64.2.tgz"
   "version" "0.64.2"
@@ -6135,7 +6152,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.20.1"
 
-"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@17.0.1":
+"react@*", "react@^16.0.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0", "react@16 || 17", "react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
