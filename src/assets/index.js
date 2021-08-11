@@ -25,7 +25,8 @@ const assets = {
     check_square: require('./icons/check_square.png'),
     uncheck_circle: require('./icons/uncheck_circle.png'),
     uncheck_square: require('./icons/uncheck_square.png'),
-    arrow_back: require('./icons/arrow_back.png')
+    arrow_back: require('./icons/arrow_back.png'),
+    left_arrow: require('./icons/left-arrow.png')
 }
 
 export default assets;

@@ -105,7 +105,7 @@ const More = ({ navigation }) => {
                                     return (
                                         <View key={key}>
                                             {checkedTheme == key ?
-                                                <View style={{ flexDirection: 'row', marginLeft:20}}>
+                                                <View style={{ flexDirection: 'row', marginLeft:20, alignItems:'center'}}>
                                                     <TouchableOpacity style={{ marginRight: 10 }}>
                                                         <Image source={assets.check_circle} />
                                                     </TouchableOpacity>
@@ -113,7 +113,7 @@ const More = ({ navigation }) => {
 
                                                 </View>
                                                 :
-                                                <View style={{ flexDirection: 'row', marginLeft: 20}}>
+                                                <View style={{ flexDirection: 'row', marginLeft: 20, alignItems:'center'}}>
                                                     <TouchableOpacity onPress={() => { setchecked(key) }} style={{ marginRight: 10 }}>
                                                         <Image source={assets.uncheck_circle} />
                                                     </TouchableOpacity>
