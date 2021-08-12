@@ -10,7 +10,8 @@ import {
     SafeAreaView,
     Image,
     Dimensions,
-    ScrollView
+    ScrollView,
+    FlatList
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import Slider from '@react-native-community/slider';
@@ -97,8 +98,9 @@ const NewGoalScreen = ({navigation}) => {
     const [timeNumber, setTimeNumber] = React.useState(defaultTimeNumber)
     const [paceNumber, setPaceNumber] = React.useState(defaultPaceNumber)
     const [period, setPeriod] = React.useState('day');
-
-
+    const periodList = [{name: 'Per Day'},{name: 'Per Week'}, {name: 'Per Month'}]
+    const flatListRef = React.useRef()
+    const [currentPeriod, setCurrentPeriod] = React.useState(0)
     //Reminder: on-off toggle
     const [reminder, setToggleReminder] = React.useState(true)
     function toggleReminder() {
@@ -122,7 +124,15 @@ const NewGoalScreen = ({navigation}) => {
         else {
             return (<View style={styles.checkBoxOff}/>)}
     }
+    let onScrollEnd = (e) => {
+        let contentOffset = e.nativeEvent.contentOffset;
+        let viewSize = e.nativeEvent.layoutMeasurement;
 
+        // Divide the horizontal offset by the width of the view to see which page is visible
+        let pageNum = Math.floor(contentOffset.x / viewSize.width);
+        setCurrentPeriod(pageNum)
+        console.log(pageNum)
+    }
     //Daily: show required metric depending on chosen method
     function compulsoryMetric(){
         if (isWalking){
@@ -181,7 +191,38 @@ const NewGoalScreen = ({navigation}) => {
         else {
             return (<View style={styles.toggleOff}><View style={styles.toggle}/></View>)}
     }
-
+    function renderItemList({item}) {
+        return (
+            <Text style = {{
+                textAlign: 'center',
+                color: Color.White1,
+                width: deviceWidth / 5
+            }}>{item.name}</Text>
+        )
+    }
+    const scrollLeft = () => {
+        console.log("Left")
+        flatListRef.current.scrollToOffset({ animated: true, offset: (currentPeriod - 1) * (deviceWidth / 5) })
+        if (currentPeriod == 0){
+            setCurrentPeriod(0)
+        }
+        else {
+            setCurrentPeriod((Math.abs(currentPeriod - 1) % 3))
+        }
+    }
+    const scrollRight = () => {
+        console.log("Right")   
+        flatListRef.current.scrollToOffset({ animated: true, offset: (currentPeriod + 1) * (deviceWidth / 5) })  
+        if (currentPeriod == 2){
+            setCurrentPeriod(2)
+        } 
+        else {
+            setCurrentPeriod((currentPeriod + 1) % 3)
+        }
+    }
+    const resetPeriod = () => {
+        flatListRef.current.scrollToOffset({ animated: true, offset: 0 })
+    }
     // Choose Start date
     const [startDateTime, setStartDateTime] = React.useState(new Date());
     const [mode, setMode] = React.useState('date');
@@ -231,6 +272,7 @@ const NewGoalScreen = ({navigation}) => {
                             <TouchableOpacity onPress={() => {
                                 setStartDateTime(new Date())
                                 setPeriod("day")
+                                resetPeriod()
                                 }}>
                                 <Text style={styles.bold16white}>Reset to defaults</Text>     
                             </TouchableOpacity>
@@ -243,7 +285,39 @@ const NewGoalScreen = ({navigation}) => {
                         </View>
                         <View style = {styles.row}>
                             <Text style={styles.normal16white}>Period</Text> 
-                            <Picker
+                            
+                            <View style = {{
+                                alignSelf: 'flex-end',
+                                width: deviceWidth / 5 + 20,
+                                flexDirection: 'row',
+                                alignItems: 'center'
+                            }}>
+                                <TouchableOpacity onPress = {scrollLeft}>
+                                    <Image source = {assets.go_left} style = {{
+                                        tintColor: Color.Main1,
+                                        width: 10,
+                                        height: 10,
+
+                                    }}/> 
+                                </TouchableOpacity>
+                                <FlatList
+                                ref = {flatListRef}
+                                showsHorizontalScrollIndicator = {false}
+                                data = {periodList}
+                                horizontal = {true}
+                                pagingEnabled = {true}
+                                renderItem = {renderItemList}
+                                onMomentumScrollEnd = {onScrollEnd}
+                                />
+                                <TouchableOpacity onPress = {scrollRight}>
+                                    <Image source = {assets.go_right} style = {{
+                                        tintColor: Color.Main1,
+                                        width: 10,
+                                        height: 10,
+                                    }}/> 
+                                </TouchableOpacity>
+                            </View>
+                            {/* <Picker
                                 style={{width: 160, height: 10, color: Color.White1, marginRight:-15}}
                                 dropdownIconColor={Color.Main1}
                                 selectedValue={period}
@@ -251,7 +325,7 @@ const NewGoalScreen = ({navigation}) => {
                                 <Picker.Item label="Per Day" value="day" />
                                 <Picker.Item label="Per Week" value="week" />
                                 <Picker.Item label="Per Month" value="month" />
-                            </Picker>
+                            </Picker> */}
    
                         </View>
                         <View style = {styles.row}>
