@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 function BottomTabNavigation() {
   return (
     <Tab.Navigator screenOptions={{ 
-        headerShown: false,
+        // headerShown: false,
         headerTintColor: Color.White1, headerStyle:{shadowColor: 'transparent',  backgroundColor: Color.Dark1,  }, 
         tabBarActiveTintColor: Color.Main1,
         tabBarStyle:{

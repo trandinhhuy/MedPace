@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^3.5.2",
+    "@react-native-picker/picker": "^1.16.5",
     "@react-navigation/bottom-tabs": "^6.0.1",
     "@react-navigation/native": "^6.0.1",
     "@react-navigation/stack": "^6.0.1",
@@ -19,7 +20,10 @@
     "react-native": "0.64.2",
     "react-native-animated-ruler": "^1.1.1",
     "react-native-background-timer": "^2.4.1",
+    "react-native-dashed-line": "^1.1.0",
+    "react-native-dropdown-picker": "^5.1.23",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-picker-select": "^8.0.4",
     "react-native-progress": "^5.0.0",
     "react-native-progress-circle": "^2.1.0",
     "react-native-reanimated": "^2.2.0",
