@@ -6,7 +6,6 @@ import {
     TouchableOpacity
 } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import DropDownPicker from 'react-native-dropdown-picker';
 import RNPickerSelect from 'react-native-picker-select';
 
 import { Color } from '../../color'

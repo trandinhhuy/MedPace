@@ -1,8 +1,8 @@
 import React  from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
-import Setting from '../screens/Setting';
-import PlantScreen from '../screens/Plant/Plant'
+import More from '../screens/More';
+import PlanScreen from '../screens/Plan/Plan'
 import { Color } from '../color';
 import { Image } from 'react-native';
 import assets from '../assets';
@@ -21,9 +21,9 @@ function BottomTabNavigation() {
         },
      }}>
       <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.home_icon} {...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Home" component={Home} />
-      <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.target_icon}{...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Plan" component={PlantScreen}/>
+      <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.target_icon}{...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Plan" component={PlanScreen}/>
       <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.result_icon}{...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Result" component={ResultScreen}/>
-      <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.setting_icon} {...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="Setting" component={Setting} />
+      <Tab.Screen options={{tabBarIcon: (props) => <Image source={assets.setting_icon} {...props} resizeMode='contain' style={{width: props.size, height:props.size, tintColor: props.color}} />}} name="More" component={More} />
     </Tab.Navigator>
   );
 }

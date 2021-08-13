@@ -17,23 +17,23 @@ const WhatAreYourGoal = ({ navigation, route = {params: {}}, onAction }) => {
             <Button onPress={() => setAnswer({
                 ...answer,
                 loseweight: !answer.loseweight
-            })}  variant={answer.loseweight ? 'outlined': 'basic'}>lose weight</Button>
+            })}  variant={answer.loseweight ? 'outlined': 'basic'}>Lose weight</Button>
             <Button onPress={() => setAnswer({
                 ...answer,
                 getinshape: !answer.getinshape
-            })}  variant={answer.getinshape ? 'outlined': 'basic'}>get in shape</Button>
+            })}  variant={answer.getinshape ? 'outlined': 'basic'}>Get in shape</Button>
             <Button onPress={() => setAnswer({
                 ...answer,
                 buildmycardio: !answer.buildmycardio
-            })}  variant={answer.buildmycardio ? 'outlined': 'basic'}>build my cardio</Button>
+            })}  variant={answer.buildmycardio ? 'outlined': 'basic'}>Build my cardio</Button>
             <Button onPress={() => setAnswer({
                 ...answer,
                 improveperformance: !answer.improveperformance
-            })}  variant={answer.improveperformance ? 'outlined': 'basic'}>improve my performance</Button>
+            })}  variant={answer.improveperformance ? 'outlined': 'basic'}>Improve my performance</Button>
             <Button onPress={() => setAnswer({
                 ...answer,
                 justforfun: !answer.justforfun
-            })}  variant={answer.justforfun ? 'outlined': 'basic'}>just for fun</Button>
+            })}  variant={answer.justforfun ? 'outlined': 'basic'}>Just for fun</Button>
         </View>
     </QuestionTemplate>
 }

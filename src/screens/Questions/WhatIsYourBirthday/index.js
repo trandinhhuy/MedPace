@@ -14,7 +14,7 @@ const WhatIsYourBirthday = ({ navigation, route = {params: {}}, onAction }) => {
             <DateTimePicker 
                 testID="dateTimePicker"
                 value={answer}
-                onChange={(e, value) => setAnswer(value)}
+                onChange={(e, value) => setAnswer(answer)}
                 mode='date'
                 display="spinner"
                 themeVariant="dark"

@@ -202,11 +202,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     titleText: {
-        color: '#D8D8DF',
+        color: Color.White1,
         fontSize: 20,
-        fontWeight: 'bold',
-        marginHorizontal: 94,
-        alignItems: 'center',
+        lineHeight: 24,
+        fontWeight: '600',
+        marginHorizontal: 94 ,
+        alignItems:'center',
         justifyContent: 'center',
         width: 58,
         height: 24,
@@ -230,8 +231,8 @@ const styles = StyleSheet.create({
     circle: {
         marginTop: 48,
         alignSelf: 'center',
-        width: 248,
-        height: 248,
+        width: deviceWidth * 66 / 100,
+        height: deviceWidth * 66 / 100,
         borderRadius: 248,
         backgroundColor: '#141414',
         shadowOffset: {
@@ -244,8 +245,8 @@ const styles = StyleSheet.create({
     },
     circle1: {
         alignSelf: 'center',
-        width: 230,
-        height: 230,
+        width: deviceWidth * 0.613333333,
+        height: deviceWidth * 0.613333333,
         backgroundColor: '#242424',
         borderRadius: 230,
         alignItems: 'center',
@@ -255,38 +256,38 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 212,
         marginHorizontal: 11,
-        width: 212,
-        height: 212,
+        width: deviceWidth * 0.565333333,
+        height: deviceWidth * 0.565333333,
         alignItems: 'center',
         justifyContent: 'center'
     },
     infoView: {
-        marginTop: 50,
-        width: 343,
-        height: 255,
+        marginTop: deviceHeight * 0.05049,
+        width: deviceWidth * 0.914666666,
+        height: deviceHeight * 0.314039,
         alignSelf: 'center',
         flexDirection: 'column'
     },
     firstRow: {
-        width: 343,
-        height: 106,
+        width: deviceWidth * 0.906666666 + 3,
+        height: deviceHeight * 0.13054,
         flexDirection: 'row',
     },
     secondRow: {
-        width: 343,
-        height: 106,
-        marginTop: 40,
+        width: deviceWidth * 0.906666666 + 3,
+        height: deviceHeight * 0.13054,
+        marginTop: deviceHeight * 0.049,
         flexDirection: 'row',
     },
     itemLeft: {
-        width: 170,
-        height: 106,
+        width: deviceWidth * 0.906666666 / 2,
+        height: deviceHeight * 0.13054,
         marginRight: 3,
         flexDirection: 'column'
     },
     itemRight: {
-        width: 170,
-        height: 106,
+        width: deviceWidth * 0.906666666 / 2,
+        height: deviceHeight * 0.13054,
         flexDirection: 'column'
     }
 })
