@@ -68,7 +68,7 @@ const Schedule: React.FC = () => {
                         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={styles.GoalTypeTitle}>Pace</Text>
                             <View>
-                                <Text style={styles.progress}>{item.paceHourProgr + ':' + item.paceMinProgr + '/' + item.paceHourGoal + ':' + item.paceMinProgr}</Text>
+                                <Text style={styles.progress}>{item.paceHourProgr + ':' + item.paceMinProgr + '/' + item.paceHourGoal + ':' + item.paceMinGoal}</Text>
                             </View>
                         </View>
 
@@ -106,7 +106,7 @@ const Schedule: React.FC = () => {
 
                         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={styles.GoalTypeTitle}>Step</Text>
-                            <Text style={styles.progress}>{item.stepProgr + ':' + item.stepGoal}</Text>
+                            <Text style={styles.progress}>{item.stepProgr + '/' + item.stepGoal}</Text>
                         </View>
 
                         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
