@@ -6024,19 +6024,10 @@
     "jscodeshift" "^0.11.0"
     "nullthrows" "^1.1.1"
 
-<<<<<<< HEAD
-"react-native-dropdown-picker@^5.1.23":
-  "integrity" "sha512-Mz8CJAP/3iSXqR7Ox0IchfSotP1g2tcxn3jIS23IEw73zAdntLsp3J15iQQrIANxEuxel2RcPIF2sZvcyKQK9g=="
-  "resolved" "https://registry.npmjs.org/react-native-dropdown-picker/-/react-native-dropdown-picker-5.1.23.tgz"
-  "version" "5.1.23"
-  dependencies:
-    "react-native-gesture-handler" "*"
-=======
 "react-native-community-slider-ry@^1.1.5":
   "integrity" "sha512-4ZnKIYO4ALEZvuDyjEKvpg00bgkXo1N7TaoCHYiMAX5t14SlQvkHMVd76XuMxkRkIc2ISTbTokk48jT7IyYsjg=="
   "resolved" "https://registry.npmjs.org/react-native-community-slider-ry/-/react-native-community-slider-ry-1.1.5.tgz"
   "version" "1.1.5"
->>>>>>> fa56c09dd35483397b4ce77d78d94999578252ba
 
 "react-native-gesture-handler@*", "react-native-gesture-handler@^1.10.3", "react-native-gesture-handler@>= 1.0.0":
   "integrity" "sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw=="
@@ -6072,9 +6063,9 @@
     "string-hash-64" "^1.0.3"
 
 "react-native-safe-area-context@^3.2.0", "react-native-safe-area-context@>= 3.0.0":
-  "integrity" "sha512-k2Nty4PwSnrg9HwrYeeE+EYqViYJoOFwEy9LxL5RIRfoqxAq/uQXNGwpUg2/u4gnKpBbEPa9eRh15KKMe/VHkA=="
-  "resolved" "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.2.0.tgz"
-  "version" "3.2.0"
+  "integrity" "sha512-IrCNx56LO9RJ75yCf2CSSO1ceLj3mvxTAF+HWnehaeRIfF4pIcIn3WEUlXulFiha641OKS5X0+1XZCbbQ7pITA=="
+  "resolved" "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.3.0.tgz"
+  "version" "3.3.0"
 
 "react-native-screens@^3.5.0", "react-native-screens@>= 3.0.0":
   "integrity" "sha512-xew4x0YX0RaDduNYM4gZXkphPwGZIbbu9fTU85xOtT1tOUPm3OU4pFMiN6PF54haMCsaMQRvdOXvLicUVRiptA=="
