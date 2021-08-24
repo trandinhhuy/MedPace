@@ -53,8 +53,8 @@ class Profile extends Component {
     
     render() {
         return (
-            <View style={{ flexDirection: 'column' }}>
-                <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth,alignItems:'center', flexDirection:'row'}}>
+            <View style={{ flex:1, backgroundColor: Color.Dark1 }}>
+                {/* <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth,alignItems:'center', flexDirection:'row'}}>
                     <TouchableOpacity onPress={()=> this.props.navigation.goBack()}>
                         <Image source={assets.arrow_back} style={{width:15,marginLeft: 24}}></Image>
                     </TouchableOpacity>
@@ -62,7 +62,7 @@ class Profile extends Component {
                         Profile
                     </Text>
                     <View style={{width:31}}></View>
-                </View>
+                </View> */}
                 <View style={{ height: 1, backgroundColor: '#242424', width: deviceWidth }}></View>
                 <ScrollView>
                     <View style={styles.container}>

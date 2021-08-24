@@ -28,13 +28,7 @@ const More = ({ navigation }) => {
     const [isBatterySave, setBatterySave] = useState(false);
     const toggleBatterySave = () => setBatterySave(previousState => !previousState);
     return (
-
-        <View style={{ flexDirection: 'column' }}>
-            <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ color: Color.White1, fontSize: 20, lineHeight: 24, fontWeight: '600' }}>
-                    More
-                </Text>
-            </View>
+        <View style={{  flex:1, backgroundColor: Color.Dark1 }}>
             <View style={{ height: 1, backgroundColor: '#242424', width: deviceWidth }}></View>
             <ScrollView>
                 <View style={styles.container}>
