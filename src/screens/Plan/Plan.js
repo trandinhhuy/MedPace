@@ -5,7 +5,9 @@ import {
     TouchableOpacity,
     Image,
     StyleSheet,
-    ScrollView
+    ScrollView,
+    SafeAreaView,
+    StatusBar
 } from 'react-native';
 import { useEffect } from 'react';
 import {Color} from '../../color';
@@ -102,12 +104,15 @@ const PlanScreen = ({navigation}) => {
         )
     }
     return (
+        <SafeAreaView style={{flex:1,  backgroundColor: Color.Dark1,}}>
+            <StatusBar backgroundColor={Color.Dark1} barStyle='light-content' />
         <View style = {{
             flex: 1, 
             alignItems: 'center',
             backgroundColor: Color.Dark1,
             flexDirection: 'column'
         }}>
+            
             <View style = {{
                 width: deviceWidth * 0.915,
                 marginHorizontal: deviceWidth * 0.046,
@@ -656,6 +661,7 @@ const PlanScreen = ({navigation}) => {
             </View>
             </ScrollView>
         </View>
+        </SafeAreaView>
     )
 }
 

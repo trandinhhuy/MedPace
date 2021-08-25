@@ -22,6 +22,7 @@ const deviceHeight = Dimensions.get('window').height
 const Home = ({ navigation }) => {
     React.useLayoutEffect(() => {
         navigation.setOptions({
+            headerTitleStyle: { alignSelf: 'center' },
             headerLeft: () => <TouchableOpacity style={styles.headerItem}>
                 <View style={styles.innerCircle}>
                     <Image source={assets.profile_icon} style={styles.imagesTop} />
