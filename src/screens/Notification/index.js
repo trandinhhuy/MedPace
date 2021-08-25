@@ -40,7 +40,7 @@ const Notification = ({ navigation }) => {
     return (
 
         <View style={{ flexDirection: 'column' }}>
-            <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth, alignItems: 'center', flexDirection: 'row' }}>
+            {/* <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth, alignItems: 'center', flexDirection: 'row' }}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image source={assets.arrow_back} style={{ width: 15, marginLeft: 24 }}></Image>
                 </TouchableOpacity>
@@ -48,7 +48,7 @@ const Notification = ({ navigation }) => {
                     Notification
                 </Text>
                 <View style={{ width: 31 }}></View>
-            </View>
+            </View> */}
             <View style={{ height: 1, backgroundColor: '#242424', width: deviceWidth }}></View>
             <View style={styles.container}>
                 <Text style={styles.title}>Goal achieved</Text>
