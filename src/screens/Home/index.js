@@ -20,28 +20,68 @@ const deviceHeight = Dimensions.get('window').height
 
 
 const Home = ({ navigation }) => {
-    React.useLayoutEffect(() => {
-        navigation.setOptions({
-            headerTitleStyle: { alignSelf: 'center' },
-            headerLeft: () => <TouchableOpacity style={styles.headerItem}>
-                <View style={styles.innerCircle}>
-                    <Image source={assets.profile_icon} style={styles.imagesTop} />
-                </View>
-            </TouchableOpacity>,
-            headerRight: () => <TouchableOpacity style={styles.headerItem} onPress = {() => {navigation.navigate('Route')}
-            }>
-            <View style={styles.innerCircle}>
-                <Image source={assets.location_icon} style={styles.imagesTop} />
-            </View>
-        </TouchableOpacity>
-        })
-    }, [navigation])
+    
     return <View style={{
         flex: 1,
         backgroundColor: Color.Dark1,
         flexDirection: 'column'
     }}>
         <SafeAreaView>
+            <View style = {{
+                width: deviceWidth * 0.915,
+                marginHorizontal: deviceWidth * 0.046,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                borderBottomWidth: 1,
+                borderBottomColor: 'rgba(5, 219, 14, 0.1)'
+            }}>
+                <TouchableOpacity onPress = {() => {
+                     navigation.navigate('Profile')
+                }}>
+                <View style = {{
+                    marginRight: deviceWidth * 0.293333 - 15,
+                    padding: 7,
+                    backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Image source = {assets.profile_icon} style = {{
+                        tintColor: Color.Main1,
+                        width: 18,
+                        height: 18,
+                    }}/>
+                </View>
+                </TouchableOpacity>
+                <Text style = {{
+                    color: Color.White1,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    width: 60,
+                    textAlign: 'center'
+                }}>Home</Text>
+                <TouchableOpacity onPress = {() => {
+                   navigation.navigate('Route')
+                }}>
+                <View style = {{
+                    marginLeft: deviceWidth * 0.293333 - 15,
+                    padding: 7,
+                    backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Image source = {assets.location_icon} style = {{
+                        tintColor: Color.Main1,
+                        width: 18,
+                        height: 18,
+                        
+                    }}/>
+                </View>
+                </TouchableOpacity>
+            </View>
             <View style={styles.circle}>
                 <View style={styles.circle1}>
                     <TouchableOpacity onPress={() => {
@@ -60,7 +100,9 @@ const Home = ({ navigation }) => {
                                     width: 87,
                                     height: 78,
                                     alignSelf: 'center',
-                                    flexDirection: 'column'
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
                                 }}>
                                     <Image source={assets.running_icon} style={{
                                         width: 26.67,
@@ -77,10 +119,10 @@ const Home = ({ navigation }) => {
                                     }}><Text style={{
                                         color: '#D8D8DF',
                                         fontSize: 24,
-                                        fontWeight: 'bold'
-                                    }}>
-                                            START
-                                        </Text>
+                                        fontWeight: 'bold',
+                                        alignSelf: 'center',
+                                        textAlign: 'center'
+                                    }}>START</Text>
                                     </View>
                                 </View>
                             </ProgressCircle>

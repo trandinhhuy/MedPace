@@ -12,6 +12,7 @@ import {
 } from 'react-native'
 import { Color } from '../../color';
 import assets from '../../assets'
+import { useNavigation } from '@react-navigation/native';
 
 
 const deviceWidth = Dimensions.get('window').width
@@ -30,7 +31,7 @@ class Profile extends Component {
             goals: [],
         }
     }
-
+    
     componentDidMount() {
         let values = this.state.goalData
         let goal = []
@@ -54,15 +55,61 @@ class Profile extends Component {
     render() {
         return (
             <View style={{ flex:1, backgroundColor: Color.Dark1 }}>
-                {/* <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth,alignItems:'center', flexDirection:'row'}}>
-                    <TouchableOpacity onPress={()=> this.props.navigation.goBack()}>
-                        <Image source={assets.arrow_back} style={{width:15,marginLeft: 24}}></Image>
-                    </TouchableOpacity>
-                    <Text style={{ color: Color.White1, fontSize: 20, lineHeight: 24, fontWeight: '600', textAlign:'center', flex:1}}>
-                        Profile
-                    </Text>
-                    <View style={{width:31}}></View>
-                </View> */}
+                <View style = {{
+                width: deviceWidth * 0.915,
+                marginHorizontal: deviceWidth * 0.046,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                borderBottomWidth: 1,
+                borderBottomColor: 'rgba(5, 219, 14, 0.1)'
+            }}>
+                <TouchableOpacity onPress = {() => {
+                     this.props.navigation.goBack()
+                }}>
+                <View style = {{
+                    marginRight: deviceWidth * 0.293333 - 15,
+                    padding: 7,
+                    //backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Image source = {assets.arrow_back} style = {{
+                        tintColor: Color.White1,
+                        width: 18,
+                        height: 18,
+                    }}/>
+                </View>
+                </TouchableOpacity>
+                <Text style = {{
+                    color: Color.White1,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    width: 60,
+                    textAlign: 'center'
+                }}>Profile</Text>
+                <TouchableOpacity onPress = {() => {
+                }}>
+                <View style = {{
+                    marginLeft: deviceWidth * 0.293333 - 15,
+                    padding: 7,
+                    backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    opacity: 0
+                }}>
+                    <Image source = {assets.location_icon} style = {{
+                        tintColor: Color.Main1,
+                        width: 18,
+                        height: 18,
+                        opacity: 0
+                    }}/>
+                </View>
+                </TouchableOpacity>
+            </View>
                 <View style={{ height: 1, backgroundColor: '#242424', width: deviceWidth }}></View>
                 <ScrollView>
                     <View style={styles.container}>
@@ -272,5 +319,6 @@ const styles = StyleSheet.create({
     }
 
 })
+
 
 export default Profile;

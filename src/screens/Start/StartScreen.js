@@ -13,6 +13,12 @@ import { Color } from '../../color'
 import assets from '../../assets';
 import { useEffect } from 'react';
 import _BackgroundTimer from 'react-native-background-timer';
+import MapboxGL from '@react-native-mapbox-gl/maps';
+
+MapboxGL.setAccessToken('pk.eyJ1IjoiaWNlY2xhd3MwMSIsImEiOiJja3Nyam5mMXgwbnVkMzJ0aHFiand4d28zIn0.ZGD0FnF6HF58GwiaLXvgJg');
+
+const deviceWidth = Dimensions.get('window').width
+const deviceHeight = Dimensions.get('window').height
 const StartScreen = ({navigation}) => {
     const [renderCount, setRenderCount] = React.useState(false)
     const [firstClick, setFirstClick] = React.useState(true);
@@ -109,25 +115,120 @@ const StartScreen = ({navigation}) => {
             }
         }
     }
+    function renderRoute(){
+        return (
+            <View style = {{
+                flex: 0,
+                height: deviceHeight - 170,
+                width: deviceWidth,
+                alignItems: 'center'
+            }}>
+                <MapboxGL.MapView 
+                logoEnabled = {false}
+                styleURL = {'mapbox://styles/iceclaws01/cksbggq7u0doy17uqgsoa8mm7'}
+                style={{
+                    width: deviceWidth,
+                    height: deviceHeight - 205,
+                    flex: 1
+                }}>
+                    <MapboxGL.Camera
+                    zoomLevel = {17}
+                    animationMode = {'flyTo'}
+                    centerCoordinate = {[108.37343238117523,11.72747799249116]}
+                    animationDuration = {1100}
+                    />
+                    <MapboxGL.PointAnnotation
+                    draggable = {false}
+                    id = {'1'}
+                    selected = {true}
+                    coordinate = {[108.37343238117523,11.72747799249116]}>
+                        <View style={{
+                        height: 20, 
+                        width: 20, 
+                        backgroundColor: Color.White1, 
+                        borderRadius: 50, 
+                        borderColor: Color.Main1, 
+                        borderWidth: 3
+                        }}/>
+                    </MapboxGL.PointAnnotation>
+                    <MapboxGL.PointAnnotation
 
-    
-    return (
-        <SafeAreaView style={{flex: 1, flexDirection: "column", justifyContent: "space-between", alignItems:"center",backgroundColor:"#141414"}}>
-            <View style={{flex: 0, flexDirection: "row", alignItems:"center", marginTop:30}}>
-                <TouchableOpacity onPress={() => {setDisplayMode('route')}}>
-                    <View style={styles.inactiveViewButton}>
-                        <Text style={styles.inactiveViewText}>Route</Text>
-                    </View>
-                </TouchableOpacity>
+                    draggable = {false}
+                    id = {'1'}
+                    selected = {true}
+                    coordinate = {[108.37411761847079,11.729585259471818]}>
 
-                <TouchableOpacity onPress={() => {setDisplayMode('metric')}}>
-                    <View style={styles.activeViewButton}>
-                        <Text style={styles.activeViewText}>Metric</Text>
+                    </MapboxGL.PointAnnotation>
+                
+                </MapboxGL.MapView>
+                <View style = {{
+                    position: 'absolute',
+                    width: 170,
+                    height: 170,
+                    backgroundColor: Color.Dark2,
+                    marginTop: 50,
+                    borderRadius: 200,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <View style = {{
+                        width: 156,
+                        height: 156,
+                        borderWidth: 4,
+                        borderColor: Color.Main1,
+                        borderRadius: 160,
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
+                        <View style = {{
+                            width: 116,
+                            height: 58,
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}>
+                            <Image source = {assets.running_icon} style = {{
+                                width: 20,
+                                height: 19,
+                                tintColor: Color.White1,
+                                marginBottom: 1
+                            }}/>
+                            <Text style = {{
+                                width: 115,
+                                height: 33,
+                                alignItems: 'center',
+                                textAlign: 'center',
+                                justifyContent: 'center',
+                                color: Color.White1,
+                                fontSize: 26,
+                                fontWeight: 'bold'
+                            }}>
+                                01:30,23
+                            </Text>
+                        </View>
                     </View>
-                </TouchableOpacity>
+                </View>
             </View>
-            <View style={{flex: 0}}> 
-                <ProgressCircle 
+        )
+    }
+
+    function renderDisplayMode(){
+        if (displayMode == 'metric'){
+            return renderMetric()
+        }
+        if (displayMode == 'route'){
+            return renderRoute()
+        }
+    }
+    function renderMetric() {
+        return (
+            <View style = {{
+                flex: 0,
+            }}>
+            <View style={{flex: 0,
+                alignSelf: 'center',
+                marginBottom: 70
+                }}> 
+                <ProgressCircle
                     percent={70} 
                     radius={113} 
                     borderWidth={7} 
@@ -145,7 +246,7 @@ const StartScreen = ({navigation}) => {
                         <Text style={styles.metricMainData}>{'02:47,10'}</Text>
                     </View>
                 </ProgressCircle>
-           </View>
+            </View>
 
             <View style={{flex: 0, flexDirection: "row", alignItems: "center"}}>
                 <View style={{marginLeft: 11, marginRight: 11}}>
@@ -196,7 +297,71 @@ const StartScreen = ({navigation}) => {
                     </ProgressCircle>
                 </View>
             </View>
+        </View>
+    )
+}
+    function activeRouteButton () {
+        return (
+            <TouchableOpacity onPress={() => {setDisplayMode('route')}}>
+                <View style={styles.activeViewButton}>
+                    <Text style={styles.activeViewText}>Route</Text>
+                </View>
+            </TouchableOpacity>
+        )
+    }
+    function inactiveRouteButton () {
+        return (
+            <TouchableOpacity onPress={() => {setDisplayMode('route')}}>
+                <View style={styles.inactiveViewButton}>
+                    <Text style={styles.inactiveViewText}>Route</Text>
+                </View>
+            </TouchableOpacity>
+        )
+    }
+    function inactiveMetricButton () {
+        return (
+            <TouchableOpacity onPress={() => {setDisplayMode('metric')}}>
+                <View style={styles.inactiveViewButton}>
+                    <Text style={styles.inactiveViewText}>Metric</Text>
+                </View>
+            </TouchableOpacity>
+        )
+    }
+    function activeMetricButton () {
+        return (
+            <TouchableOpacity onPress={() => {setDisplayMode('metric')}}>
+                <View style={styles.activeViewButton}>
+                    <Text style={styles.activeViewText}>Metric</Text>
+                </View>
+            </TouchableOpacity>
+        )
+    }
 
+    function renderMetricButton () {
+        if (displayMode == 'metric'){
+            return activeMetricButton()
+        }
+        else {
+            return inactiveMetricButton()
+        }
+    }
+    function renderRouteButton() {
+        if (displayMode == 'route'){
+            return activeRouteButton()
+        }
+        else {
+            return inactiveRouteButton()
+        }
+    }
+    return (
+        <SafeAreaView style={{flex: 1, flexDirection: "column", justifyContent: "space-between", alignItems:"center",backgroundColor:"#141414"}}>
+            <View style={{flex: 0, flexDirection: "row", alignItems:"center", marginTop:30, marginBottom: 10}}>
+                {renderRouteButton()}
+
+                {renderMetricButton()}
+            </View>
+
+            {renderDisplayMode()}
             {changeLock()}
             
             

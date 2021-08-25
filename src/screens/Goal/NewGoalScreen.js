@@ -91,7 +91,8 @@ function dateToString(date) {
   }
   
 
-const NewGoalScreen = ({navigation}) => {    
+const NewGoalScreen = ({route , navigation}) => {    
+    const {name} = route.params
     const [stepNumber, setStepNumber] = React.useState(defaultStepNumber)
     const [caloNumber, setCaloNumber] = React.useState(defaultCaloNumber)
     const [distanceNumber, setDistanceNumber] = React.useState(defaultDistanceNumber)
@@ -236,19 +237,62 @@ const NewGoalScreen = ({navigation}) => {
 
     return (
             <View style={{flex: 1, flexDirection: "column", justifyContent: "flex-start", backgroundColor: Color.Dark1}}>
-                <View style={styles.topContainer}>
-                    <TouchableOpacity onPress={() => {navigation.navigate('Home')}} style={{width: 48, height: 50, justifyContent:"center", alignItems:"center"}}>
-                        <Image source={assets.left_arrow} style={{width: 20, height: 20, tintColor: Color.White1, alignSelf: "center"}}/>
-                    </TouchableOpacity>
-
-                    <View style={{width: 95, height: 50, justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 20, fontWeight: "bold", color: Color.White1}}>New Goal</Text>     
-                    </View>
-
-                    <TouchableOpacity onPress={() => {navigation.navigate('Home')}} style={{width: 48, height: 50, justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 16, fontWeight: "bold", color: Color.White1}}>Done</Text>     
-                    </TouchableOpacity>
+                <View style = {{
+                width: deviceWidth * 0.915,
+                marginHorizontal: deviceWidth * 0.046,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                borderBottomWidth: 1,
+                borderBottomColor: 'rgba(5, 219, 14, 0.1)'
+            }}>
+                <TouchableOpacity onPress = {() => {
+                     navigation.goBack()
+                }}>
+                <View style = {{
+                    marginRight: deviceWidth * 0.293333 - 30,
+                    padding: 7,
+                    //backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Image source = {assets.arrow_back} style = {{
+                        tintColor: Color.White1,
+                        width: 18,
+                        height: 18,
+                    }}/>
                 </View>
+                </TouchableOpacity>
+                <Text style = {{
+                    color: Color.White1,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    width: 90,
+                    textAlign: 'center',
+                }}>{name}</Text>
+                <TouchableOpacity style = {{
+                    opacity: 0
+                }}>
+                <View style = {{
+                    marginLeft: deviceWidth * 0.293333 - 30,
+                    padding: 7,
+                    backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    opacity: 0
+                }}>
+                    <Image source = {assets.location_icon} style = {{
+                        tintColor: Color.Main1,
+                        width: 18,
+                        height: 18,
+                        
+                    }}/>
+                </View>
+                </TouchableOpacity>
+            </View>
 
                 <ScrollView>
 

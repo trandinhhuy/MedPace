@@ -3,14 +3,17 @@ import {
     View,
     Text,
     SafeAreaView,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions,
+    Image
 } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import RNPickerSelect from 'react-native-picker-select';
-
+import assets from '../../assets';
 import { Color } from '../../color'
 import Chart from '../../components/Chart';
-
+const deviceWidth = Dimensions.get('window').width
+const deviceHeight = Dimensions.get('window').height
 const generateDaysData = (factor = 500) => {
     return [...Array(24)].map((item, n) => ({
         value: Math.round(Math.random() * factor),
@@ -146,7 +149,26 @@ const ResultScreen = () => {
             flexDirection: 'column'
         }} >
             <SafeAreaView style={{ flex: 1 }}>
-
+            <View style = {{
+                width: deviceWidth * 0.915,
+                marginHorizontal: deviceWidth * 0.046,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                borderBottomWidth: 1,
+                borderBottomColor: 'rgba(5, 219, 14, 0.1)'
+            }}>
+                
+                <Text style = {{
+                    color: Color.White1,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    width: 60,
+                    textAlign: 'center'
+                }}>Result</Text>
+                
+            </View>
                 <ScrollView>
 
                     <View style={{ width: '100%', paddingHorizontal: 20, justifyContent: 'space-between', flexDirection: "row" }}>

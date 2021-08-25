@@ -35,7 +35,7 @@ const App = ({navigation}) => {
         <Stack.Screen options={{headerShown:false}} name='BottomTabNavigation' component={BottomTabNavigation} />
         <Stack.Screen options={{headerShown: false}} name='Start' component = {StartScreen}/>
         <Stack.Screen options={{headerShown: false}} name='NewGoal' component = {NewGoalScreen}/>
-        <Stack.Screen name='Profile' component = {Profile}/>
+        <Stack.Screen options={{headerShown: false}}name='Profile' component = {Profile}/>
         <Stack.Screen options={{headerShown: false}} name='MeasuringUnit' component = {MeasuringUnit}/>
         <Stack.Screen options={{headerShown: false}} name='Language' component = {Language}/>
         <Stack.Screen options={{headerShown: false}} name='Notification' component = {Notification}/>

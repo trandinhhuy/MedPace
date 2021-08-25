@@ -25,7 +25,63 @@ const Language = ({ navigation }) => {
     const [checkedLanguage, setcheckedLanguage] = useState(0)
     return (
 
-        <View style={{ flexDirection: 'column' }}>
+        <View style={{ flexDirection: 'column', backgroundColor: Color.Dark1 }}>
+            <View style = {{
+                width: deviceWidth * 0.915,
+                marginHorizontal: deviceWidth * 0.046,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                borderBottomWidth: 1,
+                borderBottomColor: 'rgba(5, 219, 14, 0.1)'
+            }}>
+                <TouchableOpacity onPress = {() => {
+                     navigation.goBack()
+                }}>
+                <View style = {{
+                    marginRight: deviceWidth * 0.293333 - 60,
+                    padding: 7,
+                    //backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <Image source = {assets.arrow_back} style = {{
+                        tintColor: Color.White1,
+                        width: 18,
+                        height: 18,
+                    }}/>
+                </View>
+                </TouchableOpacity>
+                <Text style = {{
+                    color: Color.White1,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                    width: 150,
+                    textAlign: 'center',
+                }}>Language</Text>
+                <TouchableOpacity style = {{
+                    opacity: 0
+                }}>
+                <View style = {{
+                    marginLeft: deviceWidth * 0.293333 - 60,
+                    padding: 7,
+                    backgroundColor : 'rgba(5, 219, 14, 0.1)',
+                    borderRadius: 100,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    opacity: 0
+                }}>
+                    <Image source = {assets.location_icon} style = {{
+                        tintColor: Color.Main1,
+                        width: 18,
+                        height: 18,
+                        
+                    }}/>
+                </View>
+                </TouchableOpacity>
+            </View>
             {/* <View style={{ backgroundColor: Color.Dark1, height: 50, width: deviceWidth, alignItems: 'center', flexDirection: 'row' }}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image source={assets.arrow_back} style={{ width: 15, marginLeft: 24 }}></Image>

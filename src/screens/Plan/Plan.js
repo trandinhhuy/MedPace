@@ -105,7 +105,6 @@ const PlanScreen = ({navigation}) => {
     }
     return (
         <SafeAreaView style={{flex:1,  backgroundColor: Color.Dark1,}}>
-            <StatusBar backgroundColor={Color.Dark1} barStyle='light-content' />
         <View style = {{
             flex: 1, 
             alignItems: 'center',
@@ -124,10 +123,10 @@ const PlanScreen = ({navigation}) => {
                 borderBottomColor: 'rgba(5, 219, 14, 0.1)'
             }}>
                 <TouchableOpacity ref = {newGoal} onPress = {() => {
-                    navigation.navigate('NewGoal')  
+                    navigation.navigate('NewGoal', {name: 'New Goal'})  
                 }}>
                 <View style = {{
-                    marginRight: deviceWidth * 0.293333,
+                    marginRight: deviceWidth * 0.293333 - 15,
                     padding: 7,
                     backgroundColor : 'rgba(5, 219, 14, 0.1)',
                     borderRadius: 100,
@@ -144,13 +143,15 @@ const PlanScreen = ({navigation}) => {
                 <Text style = {{
                     color: Color.White1,
                     fontSize: 20,
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    width: 60,
+                    textAlign: 'center'
                 }}>Plan</Text>
                 <TouchableOpacity onPress = {() => {
-                    navigation.navigate('NewGoal')
+                    navigation.navigate('NewGoal', {name: 'Edit Goal'})
                 }}>
                 <View style = {{
-                    marginLeft: deviceWidth * 0.293333,
+                    marginLeft: deviceWidth * 0.293333 - 15,
                     padding: 7,
                     backgroundColor : 'rgba(5, 219, 14, 0.1)',
                     borderRadius: 100,

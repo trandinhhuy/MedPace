@@ -5,6 +5,7 @@ import { Dimensions } from 'react-native';
 import { Color } from '../../color';
 import MapboxGL from '@react-native-mapbox-gl/maps';
 import assets from '../../assets';
+
 const deviceWidth = Dimensions.get('window').width
 const deviceHeight = Dimensions.get('window').height
 MapboxGL.setAccessToken('pk.eyJ1IjoiaWNlY2xhd3MwMSIsImEiOiJja3Nyam5mMXgwbnVkMzJ0aHFiand4d28zIn0.ZGD0FnF6HF58GwiaLXvgJg');
