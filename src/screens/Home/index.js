@@ -27,7 +27,8 @@ const Home = ({ navigation }) => {
                     <Image source={assets.profile_icon} style={styles.imagesTop} />
                 </View>
             </TouchableOpacity>,
-            headerRight: () => <TouchableOpacity style={styles.headerItem}>
+            headerRight: () => <TouchableOpacity style={styles.headerItem} onPress = {() => {navigation.navigate('Route')}
+            }>
             <View style={styles.innerCircle}>
                 <Image source={assets.location_icon} style={styles.imagesTop} />
             </View>

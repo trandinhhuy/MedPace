@@ -20,10 +20,11 @@ import { Color } from './src/color';
 import BottomTabNavigation from './src/navigations/BottomTabNavigation';
 import StartScreen from './src/screens/Start/StartScreen';
 import NewGoalScreen from './src/screens/Goal/NewGoalScreen';
+import route from './src/screens/Map/route';
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const App = ({navigation}) => {
   return (
     <>
      <StatusBar barStyle='light-content'></StatusBar>
@@ -38,6 +39,7 @@ const App = () => {
         <Stack.Screen options={{headerShown: false}} name='MeasuringUnit' component = {MeasuringUnit}/>
         <Stack.Screen options={{headerShown: false}} name='Language' component = {Language}/>
         <Stack.Screen options={{headerShown: false}} name='Notification' component = {Notification}/>
+        <Stack.Screen options={{headerShown: false}} name='Route' component = {route}/>
       </Stack.Navigator>
     </NavigationContainer>
     </>

@@ -21,6 +21,7 @@ const StartScreen = ({navigation}) => {
     const [secondLeft, setSecondLeft] = React.useState(10);
     const [timerOn, setTimerOn] = React.useState(false)
 
+    const [displayMode, setDisplayMode] = React.useState('metric')
 
     useEffect(() => {
         if (timerOn) startTimer()
@@ -112,21 +113,19 @@ const StartScreen = ({navigation}) => {
     
     return (
         <SafeAreaView style={{flex: 1, flexDirection: "column", justifyContent: "space-between", alignItems:"center",backgroundColor:"#141414"}}>
-
-            <View style={{flex: 0, flexDirection: "row", alignItems:"center", marginTop:60}}>
-                <TouchableOpacity onPress={() => {}}>
+            <View style={{flex: 0, flexDirection: "row", alignItems:"center", marginTop:30}}>
+                <TouchableOpacity onPress={() => {setDisplayMode('route')}}>
                     <View style={styles.inactiveViewButton}>
                         <Text style={styles.inactiveViewText}>Route</Text>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={() => {setDisplayMode('metric')}}>
                     <View style={styles.activeViewButton}>
                         <Text style={styles.activeViewText}>Metric</Text>
                     </View>
                 </TouchableOpacity>
             </View>
-
             <View style={{flex: 0}}> 
                 <ProgressCircle 
                     percent={70} 

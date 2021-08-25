@@ -33,7 +33,9 @@ const assets = {
     edit: require('./icons/edit.png'),
     walk: require('./icons/walk.png'),
     tick: require('./icons/tick.png'),
-    clock: require('./icons/clock.png')
+    clock: require('./icons/clock.png'),
+    dot_circle: require('./icons/dot_circle.png'),
+    dot: require('./icons/dot.png')
 }
 
 export default assets;
